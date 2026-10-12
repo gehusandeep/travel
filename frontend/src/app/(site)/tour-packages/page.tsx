@@ -18,9 +18,9 @@ import { emptyPage } from '@/types/api';
 const PAGE_SIZE = 24;
 
 export const metadata = buildMetadata({
-  title: 'Pilgrimage Tour Packages 2026–27',
+  title: 'Adi Kailash and Pilgrimage Tour Packages 2026–27',
   description:
-    'Compare Kailash Mansarovar, Adi Kailash, Char Dham, Muktinath and Kashi tour packages. Filter by destination, duration, comfort level and travel mode.',
+    'Compare Adi Kailash and Om Parvat yatras from Pithoragarh, Kathgodam and Delhi, plus Kailash Mansarovar, Char Dham and Nepal tours. Filter by duration and travel mode.',
   path: routes.packages,
 });
 

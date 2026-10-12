@@ -23,7 +23,8 @@ export function DepartureTable({ departures, packageSlug, packageTitle }: Depart
   }
 
   return (
-    <div className="overflow-x-auto rounded-3xl border border-stone-200 bg-white">
+    // `relative` keeps the sr-only cells inside the scroller (see UpcomingDeparturesTable).
+    <div className="relative overflow-x-auto rounded-3xl border border-stone-200 bg-white">
       <table className="w-full min-w-[42rem] text-left text-sm">
         <caption className="sr-only">Upcoming fixed departures for {packageTitle}</caption>
         <thead className="bg-stone-50 text-xs uppercase tracking-wide text-stone-500">

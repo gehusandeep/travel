@@ -1,6 +1,6 @@
 import { MAX_WISHLIST_ITEMS } from './wishlist.slice';
 
-const STORAGE_KEY = 'himalaya-yatra:wishlist';
+const STORAGE_KEY = 'divya-darshan:wishlist';
 
 /** Reads the saved wishlist. Returns [] on the server or if storage is unavailable. */
 export function readStoredWishlist(): string[] {

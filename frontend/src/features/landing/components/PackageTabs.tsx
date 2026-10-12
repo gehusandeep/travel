@@ -44,7 +44,7 @@ export function PackageTabs({ tabs, label }: PackageTabsProps) {
 
   return (
     <div>
-      <div role="tablist" aria-label={label} className="scrollbar-none flex gap-3 overflow-x-auto pb-2">
+      <div role="tablist" aria-label={label} className="scrollbar-none relative flex gap-3 overflow-x-auto pb-2">
         {tabs.map((tab, index) => {
           const selected = index === activeIndex;
           return (

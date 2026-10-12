@@ -21,7 +21,7 @@ export function InPageNav({ sections, label, stickyOffsetClassName = 'top-16 lg:
       className={cn('sticky z-20 border-b border-stone-200 bg-white/95 backdrop-blur', stickyOffsetClassName)}
     >
       <Container>
-        <ul className="scrollbar-none -mx-2 flex gap-1 overflow-x-auto py-2">
+        <ul className="scrollbar-none relative -mx-2 flex gap-1 overflow-x-auto py-2">
           {sections.map((section) => (
             <li key={section.id}>
               <a

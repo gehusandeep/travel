@@ -18,7 +18,9 @@ export function UpcomingDeparturesTable({ departures, caption, source = 'ENQUIRY
   if (departures.length === 0) return null;
 
   return (
-    <div className="overflow-x-auto rounded-3xl border border-stone-200 bg-white shadow-sm">
+    // `relative` makes this the containing block for the sr-only cells, so they are clipped by the scroller
+    // instead of widening the whole page on phones.
+    <div className="relative overflow-x-auto rounded-3xl border border-stone-200 bg-white shadow-sm">
       <table className="w-full min-w-[52rem] text-left text-sm">
         <caption className="sr-only">{caption}</caption>
         <thead className="bg-stone-50 text-xs uppercase tracking-wide text-stone-500">

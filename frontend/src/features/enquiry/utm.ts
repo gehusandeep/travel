@@ -1,6 +1,6 @@
 import type { UtmParams } from './types';
 
-const STORAGE_KEY = 'himalaya-yatra:utm';
+const STORAGE_KEY = 'divya-darshan:utm';
 const UTM_KEYS = ['source', 'medium', 'campaign', 'term', 'content'] as const;
 const MAX_LENGTH = 150;
 

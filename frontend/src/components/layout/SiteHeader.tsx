@@ -20,7 +20,7 @@ export function SiteHeader({ categories }: { categories: CategoryTreeNode[] }) {
       <AnnouncementBar />
       <TopBar />
       <header className="sticky top-0 z-40 border-b border-stone-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
-        <Container className="flex h-16 items-center justify-between gap-4 lg:h-20">
+        <Container className="flex h-16 items-center justify-between gap-2 sm:gap-4 lg:h-20">
           <Logo />
           <DesktopNav destinations={destinations} />
           <div className="flex items-center gap-1 sm:gap-2">

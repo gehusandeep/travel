@@ -26,7 +26,7 @@ export function TestimonialCarousel({ testimonials, label = 'Pilgrim reviews' }:
     <div role="region" aria-roledescription="carousel" aria-label={label}>
       <ul
         ref={listRef}
-        className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0"
+        className="scrollbar-none relative -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0"
       >
         {testimonials.map((testimonial) => (
           <li

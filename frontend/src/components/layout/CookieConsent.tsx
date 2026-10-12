@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { routes } from '@/lib/routes';
 
-const CONSENT_KEY = 'himalaya-yatra:cookie-consent';
+const CONSENT_KEY = 'divya-darshan:cookie-consent';
 
 export type ConsentChoice = 'accepted' | 'declined';
 

@@ -62,6 +62,7 @@ export async function generateMetadata({ params }: PackagePageProps): Promise<Me
     description: pkg.seo.description ?? pkg.summary,
     path: routes.package(pkg.slug),
     keywords: pkg.seo.keywords,
+    images: 'route',
   });
 }
 

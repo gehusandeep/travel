@@ -36,7 +36,8 @@ export function Logo({ tone = 'dark', className, onClick }: LogoProps) {
         </span>
         <span
           className={cn(
-            'mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]',
+            // Tighter tracking on phones keeps the logo, search, wishlist and menu on one 360px row.
+            'mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.12em] sm:text-[0.65rem] sm:tracking-[0.2em]',
             isLight ? 'text-gold-300' : 'text-brand-700',
           )}
         >

@@ -19,18 +19,22 @@ const DEFAULT_OG_IMAGE: OgImage = {
   height: 630,
 };
 
+/**
+ * - 'site' (default): the site-wide card from app/opengraph-image.
+ * - 'route': the route folder has its own opengraph-image file. Next.js only
+ *   applies a file-based image when the page's metadata leaves
+ *   openGraph.images unset, so buildMetadata omits it.
+ * - an array: explicit images.
+ */
+export type OgImageSource = 'site' | 'route' | OgImage[];
+
 export interface PageSeo {
   title: string;
   description: string;
   /** Path of the page, e.g. "/tour-packages". Becomes the canonical URL. */
   path: string;
   keywords?: readonly string[];
-  /**
-   * Leave empty to use the site-wide card. Routes with their own
-   * opengraph-image file (packages, blog posts) override it automatically,
-   * because file-based metadata takes priority.
-   */
-  images?: OgImage[];
+  images?: OgImageSource;
   type?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
@@ -39,6 +43,12 @@ export interface PageSeo {
   noIndex?: boolean;
   /** Skip the "| Brand" title template (used by the home page). */
   absoluteTitle?: boolean;
+}
+
+function resolveImages(source: OgImageSource): { images?: OgImage[] } {
+  if (source === 'route') return {};
+  if (source === 'site' || source.length === 0) return { images: [DEFAULT_OG_IMAGE] };
+  return { images: source };
 }
 
 /**
@@ -50,7 +60,7 @@ export function buildMetadata({
   description,
   path,
   keywords,
-  images,
+  images = 'site',
   type = 'website',
   publishedTime,
   modifiedTime,
@@ -59,14 +69,13 @@ export function buildMetadata({
   noIndex = false,
   absoluteTitle = false,
 }: PageSeo): Metadata {
-  const ogImages = images && images.length > 0 ? images : [DEFAULT_OG_IMAGE];
   const shared = {
     title,
     description,
     url: path,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
-    images: ogImages,
+    ...resolveImages(images),
   };
 
   const openGraph: Metadata['openGraph'] =

@@ -56,6 +56,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     modifiedTime: post.updatedAt,
     authors: [post.author.name],
     tags: post.tags,
+    images: 'route',
   });
 }
 
