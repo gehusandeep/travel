@@ -13,11 +13,18 @@ const csv = (value: string) =>
     .map((item) => item.trim())
     .filter(Boolean);
 
+/**
+ * A browser `Origin` header never carries a trailing slash, and CORS matching is
+ * an exact string compare. Normalizing here means pasting a copied URL such as
+ * "https://site.vercel.app/" into CORS_ORIGINS still works.
+ */
+const originList = (value: string) => csv(value).map((origin) => origin.replace(/\/+$/, ''));
+
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().int().min(1).max(65535).default(4000),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),
-  CORS_ORIGINS: z.string().default('http://localhost:3000').transform(csv),
+  CORS_ORIGINS: z.string().default('http://localhost:3000').transform(originList),
   TRUST_PROXY: z.coerce.number().int().min(0).default(0),
   JWT_SECRET: z.preprocess(
     emptyToUndefined,
